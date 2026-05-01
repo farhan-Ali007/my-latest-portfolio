@@ -1,5 +1,6 @@
 import { Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
+import ServiceWorkerRegister from "./ServiceWorkerRegister";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${inter.variable} ${geistMono.variable} antialiased`}
       >
+        <ServiceWorkerRegister />
         {children}
       </body>
     </html>

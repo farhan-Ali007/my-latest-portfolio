@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import etimadImg from "../../public/etimad.webp";
 import imsImg from "../../public/ims.webp";
@@ -74,6 +74,30 @@ export default function ProjectsSection() {
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const [loadedImages, setLoadedImages] = useState({}); // track which project images have finished loading
 
+  // Preload all project images on component mount
+  useEffect(() => {
+    projects.forEach((project) => {
+      const img = new window.Image();
+      img.src = project.image.src;
+      img.onload = () => {
+        setLoadedImages((prev) => ({ ...prev, [project.index]: true }));
+      };
+    });
+  }, [projects]);
+
+  // Preload image when hovering over a project (desktop)
+  const preloadImage = (image) => {
+    const img = new window.Image();
+    img.src = image.src;
+  };
+
+  // Mark image as loaded immediately when switching projects
+  const handleProjectClick = (idx) => {
+    setActiveProjectIndex(idx);
+    // Preload the image for faster display
+    preloadImage(projects[idx].image);
+  };
+
   return (
     <section
       id="projects"
@@ -105,7 +129,7 @@ export default function ProjectsSection() {
               >
                 <button
                   type="button"
-                  onClick={() => setActiveProjectIndex(idx)}
+                  onClick={() => handleProjectClick(idx)}
                   className="cursor-target flex w-full items-center justify-between gap-3 px-4 py-3"
                 >
                   <div className="flex items-center gap-3 text-left">
@@ -132,8 +156,8 @@ export default function ProjectsSection() {
                           alt={project.title}
                           width={1500}
                           height={700}
-                          className="relative z-10 w-full h-auto object-contain"
-                          loading="lazy"
+                          className="relative z-10 w-full h-auto object-contain transition-opacity duration-300"
+                          loading="eager"
                           sizes="(max-width: 768px) 100vw, 50vw"
                           placeholder="blur"
                           onLoadingComplete={() =>
@@ -182,7 +206,8 @@ export default function ProjectsSection() {
                 <button
                   key={project.index}
                   type="button"
-                  onClick={() => setActiveProjectIndex(idx)}
+                  onClick={() => handleProjectClick(idx)}
+                  onMouseEnter={() => preloadImage(project.image)}
                   className={`cursor-target flex w-full items-center justify-between gap-3 px-4 py-3 text-left transition-colors ${isActive
                     ? "bg-slate-900/80 text-slate-50"
                     : "bg-transparent text-slate-300 hover:bg-slate-900/40"
@@ -215,10 +240,11 @@ export default function ProjectsSection() {
                   alt={projects[activeProjectIndex].title}
                   width={1500}
                   height={700}
-                  className="relative z-10 w-full h-auto object-contain"
-                  loading="lazy"
+                  className="relative z-10 w-full h-auto object-contain transition-opacity duration-300"
+                  loading="eager"
                   sizes="(max-width: 768px) 100vw, 60vw"
                   placeholder="blur"
+                  priority={activeProjectIndex === 0}
                   onLoadingComplete={() =>
                     setLoadedImages((prev) => ({
                       ...prev,
