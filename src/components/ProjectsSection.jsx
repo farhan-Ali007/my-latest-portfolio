@@ -9,6 +9,7 @@ import imageGenImg from "../../public/image-gen.webp";
 import chatImg from "../../public/chat.webp";
 import strenoImg from "../../public/streno.webp";
 import jobImg from "../../public/job.webp";
+import fadesImg from "../../public/fades.webp";
 
 export default function ProjectsSection() {
   const projects = [
@@ -22,6 +23,14 @@ export default function ProjectsSection() {
     },
     {
       index: "02",
+      title: "Barber Salon App",
+      year: "2026",
+      stack: "Next.js • Tailwind CSS • Booking system • Responsive design",
+      image: fadesImg,
+      liveUrl: "https://fades-salon.netlify.app"
+    },
+    {
+      index: "03",
       title: "Inventory Management",
       year: "2025",
       stack: "MERN • Role-based access • Stock tracking",
@@ -30,7 +39,7 @@ export default function ProjectsSection() {
       codeLink: ""
     },
     {
-      index: "03",
+      index: "04",
       title: "Team Management App",
       year: "2025",
       stack: "MERN • Boards • Collaboration",
@@ -38,7 +47,7 @@ export default function ProjectsSection() {
       codeLink: "https://github.com/farhan-Ali007/team-flow"
     },
     {
-      index: "04",
+      index: "05",
       title: "AI Image Generator",
       year: "2025",
       stack: "React • OpenAI API • Image generation • Responsive UI • State management • Error handling • Loading states • Image download • Clipboard API • Image optimization",
@@ -46,7 +55,7 @@ export default function ProjectsSection() {
       codeLink: "https://github.com/farhan-Ali007/image-generator"
     },
     {
-      index: "05",
+      index: "06",
       title: "Chat App",
       year: "2024",
       stack: "Socket.io • Real-time messaging • User presence • Message history • User authentication",
@@ -54,7 +63,7 @@ export default function ProjectsSection() {
       codeLink: "https://github.com/farhan-Ali007/chat-frontend"
     },
     {
-      index: "06",
+      index: "07",
       title: "Learning Management",
       year: "2024",
       stack: "MERN • Courses • Progress tracking",
@@ -62,7 +71,7 @@ export default function ProjectsSection() {
       codeLink: "https://github.com/farhan-Ali007/E-learn"
     },
     {
-      index: "07",
+      index: "08",
       title: "Job Portal",
       year: "2023",
       stack: "MERN • Role-based access • Job search",
