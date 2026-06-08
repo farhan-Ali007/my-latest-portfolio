@@ -19,7 +19,7 @@ export default function ProjectsSection() {
       year: "2024",
       stack: "MERN • Cart & Checkout • Payments-ready UI",
       image: etimadImg,
-      liveUrl: "https://etimadmart.com"
+      liveUrl: "https://etimadmart.netlify.app"
     },
     {
       index: "02",
