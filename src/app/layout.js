@@ -15,6 +15,11 @@ const inter = Inter({
 export const metadata = {
   title: "Farhan Ali | MERN Stack Developer",
   description: "Portfolio of Farhan Ali – MERN stack developer building clean, performant web applications.",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
