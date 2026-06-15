@@ -21,7 +21,7 @@ export default function ProjectsSection() {
       shortStack: "MERN • API Integration • Real-time Shipping",
       description: "E-commerce businesses in Pakistan had to manually visit Leopard Courier and Post Office websites to check shipping rates and create orders, losing time and increasing errors. I built a full-stack platform that integrates LCS and Post Office APIs directly into checkout. Customers now select courier service and shipping cost in real-time without leaving the platform. This eliminated manual data entry, reduced checkout time by ~40%, and made the platform a complete one-stop solution for online selling.",
       image: etimadImg,
-      liveUrl: "https://etimadmart.com",
+      liveUrl: "https://etimadmart.netlify.app/",
       tech: ["React", "Next.js", "Node.js", "Express", "MongoDB", "REST APIs", "JWT Auth"]
     },
     {
